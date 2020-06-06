@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:flutter/foundation.dart';
+
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart' as path;
@@ -57,7 +57,7 @@ class _ImageInputState extends State<ImageInput> {
                     width: double.infinity,
                   )
                 : Text(
-                    'No Image Taken',
+                    'कोई चित्र नहीं',
                     textAlign: TextAlign.center,
                   ),
             alignment: Alignment.center,
@@ -67,8 +67,23 @@ class _ImageInputState extends State<ImageInput> {
         ),
         Expanded(
           child: FlatButton.icon(
-            icon: Icon(Icons.camera),
-            label: Text('Upload $mode'),
+            icon: Icon(
+              Icons.camera,
+              color: Colors.orange[600],
+            ),
+            label: mode == 'image'
+                ? Text(
+                    'चित्र उद्भारित करें',
+                    style: TextStyle(
+                      color: Colors.orange[600],
+                    ),
+                  )
+                : Text(
+                    'चलचित्र उद्भारित करें',
+                    style: TextStyle(
+                      color: Colors.orange[600],
+                    ),
+                  ),
             textColor: Theme.of(context).primaryColor,
             onPressed: _takePicture,
           ),

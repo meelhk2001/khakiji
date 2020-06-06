@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'screens/home_screen.dart';
-import 'screens/loading_screen.dart';
+
 import 'screens/Input_form.dart';
 import 'screens/upload_image.dart';
 import 'package:provider/provider.dart';
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [ChangeNotifierProvider.value(value: DataProviders())],
       child: MaterialApp(
-        title: 'Khakiji',
+        title: 'खाकी जी',
         theme: ThemeData(
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,

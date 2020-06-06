@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:video_player/video_player.dart';
 import '../widget/clicky_button.dart';
 import './Input_form.dart';
 import 'package:provider/provider.dart';
@@ -159,7 +158,13 @@ class _HomeState extends State<Home> {
                                                   '${e.imageUrl}')),
                                           width: width,
                                         ),
-                                        Text('${e.description}')
+                                        SizedBox(height: 10,),
+                                        Container(
+                                          width: width-2,
+                                          child: Text('${e.description}',
+                                         // overflow: TextOverflow.ellipsis,
+                                          style: TextStyle(fontSize: 20,color: Colors.red[600]),),
+                                        )
                                       ],
                                     ),
                                   ),

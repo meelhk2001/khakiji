@@ -52,27 +52,59 @@ class _UploaderState extends State<Uploader> {
               event != null ? event.bytesTransferred / event.totalByteCount : 0;
 
           return Scaffold(
-              appBar: AppBar(),
+              appBar: AppBar(
+                title: Text('जय श्री नाथ जी',
+                style: TextStyle(color: Colors.red[800]),),
+                centerTitle: true,
+                backgroundColor: Colors.orange[600],
+              ),
               body: Center(
                   child: Column(
                 children: [
-                  if (_uploadTask.isComplete) Text('🎉🎉🎉'),
+                  if (_uploadTask.isComplete)
+                    Container(
+                        padding: EdgeInsets.only(top: 8),
+                        height: 50,
+                        child: Text(
+                          'कार्य संपूर्ण हुआ',
+                          style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.orange[600],
+                              letterSpacing: 1.75),
+                        )),
 
                   if (_uploadTask.isPaused)
                     FlatButton(
+                      color: Colors.orange[600],
                       child: Icon(Icons.play_arrow),
                       onPressed: _uploadTask.resume,
                     ),
 
                   if (_uploadTask.isInProgress)
                     FlatButton(
+                      color: Colors.orange[600],
                       child: Icon(Icons.pause),
                       onPressed: _uploadTask.pause,
                     ),
 
                   // Progress bar
-                  LinearProgressIndicator(value: progressPercent),
-                  Text('${(progressPercent * 100).toStringAsFixed(2)} % '),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(8.0),
+                                          child: LinearProgressIndicator(
+                        value: progressPercent,
+                        minHeight: 10,
+                        backgroundColor: Colors.orange[600],
+                        valueColor: AlwaysStoppedAnimation<Color>(Colors.red[600]),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 10,),
+                  Text('${(progressPercent * 100).toStringAsFixed(2)} % ',style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.orange[600],
+                              letterSpacing: 0.5),),
                   SizedBox(
                     height: 20,
                   ),
@@ -91,7 +123,10 @@ class _UploaderState extends State<Uploader> {
                             Navigator.of(context).pop();
                           });
                         },
-                        child: Text('प्रदर्शित करें')),
+                        child: Text('प्रदर्शित करें',style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.red[400],
+                              letterSpacing: 1.75),)),
                 ],
               )));
         });

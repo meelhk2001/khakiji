@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'dart:io';
 import '../widget/input_image.dart';
 import 'upload_image.dart';
-import 'package:provider/provider.dart';
 import '../providers/data_providers.dart';
 
 class InputForm extends StatefulWidget {
@@ -55,7 +54,9 @@ class _InputFormState extends State<InputForm> {
               child: TextField(
                 minLines: 10,
                 maxLines: 500,
-                decoration: InputDecoration(hintText: ' विवरण'),
+                textCapitalization: TextCapitalization.sentences,
+               
+                decoration: InputDecoration.collapsed(hintText: ' विवरण'),
                 onChanged: (val) {
                   description = val;
                 },
@@ -80,7 +81,7 @@ class _InputFormState extends State<InputForm> {
                   Navigator.of(context).popAndPushNamed(Uploader.routeName,
                       arguments: imageCard); // here ) before ;
                 },
-                child: Text('रक्षित करें'))
+                child: Text('रक्षित करें',style: TextStyle(color: Colors.red[400],fontSize: 20),))
           ],
         ),
       )),

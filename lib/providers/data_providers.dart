@@ -3,8 +3,7 @@ import 'dart:io';
 import 'dart:convert';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:http/http.dart' as http;
-import 'package:firebase_storage/firebase_storage.dart';
-import 'package:path/path.dart';
+
 
 class ImageCards {
   String id;
